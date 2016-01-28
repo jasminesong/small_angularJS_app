@@ -1,5 +1,5 @@
 <!DOCTYPE htm>
-<html lang='en'>
+<html lang='en' ng-app="app">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +8,14 @@
     <title>Lost Horizon</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/style.css">
+    <!-- Include the AngularJS library -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
   
     
      
 </head>
-<body>
-    <header>
+<body  >
+    <header ng-controller="mainController">
         <nav class ="navabar navbar-inverse navbar-fixed-top grad">
             <div class="container"> 
                 <div class="navbar-header">
@@ -58,8 +60,8 @@
             <div class="form-group">    
                 <div class="container">
                     <div class = "tabs">
-                     <a href="javasript:">Desination</a>
-                     <a href="javascript:">Products</a>
+                       <span id="tab1"> <a href="javascript:;" ng-click="moveArrow('tab1')" >Desination</a></span>
+                       <span id='tab2'><a href="javascript:;" ng-click="moveArrow('tab2')" >Products</a></span>
                     </div>
                     <div class="arrow"></div>
                     <div class="row">
@@ -102,12 +104,38 @@
         </div>
 <!--        the end of carousel slide-->
     </header>
-
+    
     
     
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src = "app.js"></script>
+<script src="js/controllers/mainController.js"></script>
+<script src="js/services/getStyle.js"></script>
+<script>
+    
+
+	var timer = null;
+	function startMove(){
+		var oDiv = document.getElementById('div1');
+        var oArrow = document.getElementsByClassName('arrow')[0];
+        
+        clearInterval(timer); //如果没有这句话，每点击一次，就多开一个定时器，速度会越走越快。
+
+		timer=setInterval(function(){
+			var speed =10;
+			if(oDiv.offsetLeft>=300){  //timer打开了以后，就算满足了》300的条件而关闭定时器，定时器也只在下一次要执行时起作用，
+										//所以，如果else里的语句，没写在else中而是在if(){}之后跟着写，那么div还是会动一次。
+				clearInterval(timer);
+			}else{
+				oDiv.style.left =oDiv.offsetLeft+speed+'px';
+                oArrow.style.left=oArrow.offsetLeft+speed+'px';
+			}
+		},30);
+	}
+    
+    
+    </script>
 </body>
 </html>

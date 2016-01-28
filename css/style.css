@@ -1,6 +1,5 @@
 body {
     padding-bottom: 50px;
-    
 }
 
 nav {
@@ -37,7 +36,7 @@ div#featured{
 div.form-group {
     position:absolute;
     z-index:9999999;
-    top:200px; /* change to whatever you want */
+    top:170px; /* change to whatever you want */
     left:50%; /* change to whatever you want */
     margin-left: -22%;
     right:auto; /* change to whatever you want */
@@ -52,16 +51,42 @@ div.form-group {
 }
 
 .tabs {
-   
+   padding-bottom: 5px;
 }
 
 
 .arrow{
     width:18px;
     height:10px;
+    left:10px;
+    top:17px;
+    position:absolute;
     background:
      
      url(/img/sprite.png) 
     -145px -40px no-repeat;
 
 }
+
+#search01{
+    border-style:solid;
+    border-radius:7px;
+    border-width:10px;
+    border-color: rgba(10,10,10,0.5);
+    
+
+}
+
+#search01,#input01{
+    padding-left: 0;
+    padding-right:0;
+}
+
+#div1 {
+		width:200px;
+		height:200px;
+		background:red;
+		position:absolute;   
+		top:50px;
+		left:50px;
+	}
