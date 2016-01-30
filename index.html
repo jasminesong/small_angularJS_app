@@ -113,29 +113,6 @@
 <script src = "app.js"></script>
 <script src="js/controllers/mainController.js"></script>
 <script src="js/services/getStyle.js"></script>
-<script>
-    
 
-	var timer = null;
-	function startMove(){
-		var oDiv = document.getElementById('div1');
-        var oArrow = document.getElementsByClassName('arrow')[0];
-        
-        clearInterval(timer); //如果没有这句话，每点击一次，就多开一个定时器，速度会越走越快。
-
-		timer=setInterval(function(){
-			var speed =10;
-			if(oDiv.offsetLeft>=300){  //timer打开了以后，就算满足了》300的条件而关闭定时器，定时器也只在下一次要执行时起作用，
-										//所以，如果else里的语句，没写在else中而是在if(){}之后跟着写，那么div还是会动一次。
-				clearInterval(timer);
-			}else{
-				oDiv.style.left =oDiv.offsetLeft+speed+'px';
-                oArrow.style.left=oArrow.offsetLeft+speed+'px';
-			}
-		},30);
-	}
-    
-    
-    </script>
 </body>
 </html>
